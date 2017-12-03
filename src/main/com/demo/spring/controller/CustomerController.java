@@ -21,7 +21,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping("list")
-    public String listCustomers(Model theModel){
+    public String listCustomers(Model theModel) {
         // get customers from service
         List<Customer> theCustomers = customerService.getCustomers();
 
@@ -32,7 +32,7 @@ public class CustomerController {
     }
 
     @GetMapping("showFormForAdd")
-    public String showFormForAdd(Model theModel){
+    public String showFormForAdd(Model theModel) {
         // create model attribute to bind form data
         Customer theCustomer = new Customer();
 
@@ -51,7 +51,7 @@ public class CustomerController {
 
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("customerId") int theId,
-                                    Model theModel){
+                                    Model theModel) {
         // get the customer from service
         Customer theCustomer = customerService.getCustomer(theId);
 
@@ -60,6 +60,14 @@ public class CustomerController {
 
         // send over to form
         return "customer-form";
+    }
+
+    @GetMapping("/delete")
+    public String deleteCustomer(@RequestParam("customerId") int theId) {
+        // delete the customer
+        customerService.deleteCustomer(theId);
+
+        return "redirect:/customer/list";
     }
 
 }
