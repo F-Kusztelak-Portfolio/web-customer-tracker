@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,16 +21,25 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public List<Customer> getCustomers() {
-
         // get the current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
 
-        // create query
+        // create query and sort by last name
         Query<Customer> theQuery =
-                currentSession.createQuery("from Customer", Customer.class);
+                currentSession.createQuery("from Customer order by lastName",
+                        Customer.class);
 
         // return the results
         return theQuery.list();
+    }
+
+    @Override
+    public void saveCustomer(Customer theCustomer) {
+        // get current hibernate session
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        // save the customer
+        currentSession.save(theCustomer);
     }
 }
 

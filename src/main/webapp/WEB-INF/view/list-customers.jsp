@@ -27,8 +27,12 @@
 
         <div id="content">
 
-            <%--add out htm table here--%>
+            <%--put button: Add Customer--%>
+            <input type="button" value="Add Customer"
+                   onclick="window.location.href='showFormForAdd'; return false;"
+                   class="add-button">
 
+            <%--add out htm table here--%>
             <table>
                 <tr>
                     <th>First Name</th>

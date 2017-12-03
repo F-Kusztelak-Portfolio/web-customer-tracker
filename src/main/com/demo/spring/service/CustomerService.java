@@ -1,7 +1,6 @@
 package main.com.demo.spring.service;
 
 import main.com.demo.spring.entity.Customer;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,4 +11,6 @@ import java.util.List;
 public interface CustomerService {
 
     List<Customer> getCustomers();
+
+    void saveCustomer(Customer theCustomer);
 }

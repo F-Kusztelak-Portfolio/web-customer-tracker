@@ -1,14 +1,11 @@
 package main.com.demo.spring.entity;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 /**
  * Copyright 2017 by Filip Kusztelak
  * Created by f.kusztelak@gmail.com on 2017-12-02.
  */
-@Data
 @Entity
 @Table(name = "customer")
 public class Customer {
@@ -26,5 +23,51 @@ public class Customer {
 
     @Column(name = "email")
     private String email;
+
+    public Customer() {
+        // NoArgs constructor
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
 
