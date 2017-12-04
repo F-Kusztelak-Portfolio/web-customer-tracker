@@ -13,7 +13,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Copyright 2017 by Filip Kusztelak
  * Created by f.kusztelak@gmail.com on 2017-12-02.
  */
 @WebServlet("/TestDbServlet")
